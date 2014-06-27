@@ -1,0 +1,8 @@
+﻿<Ui xmlns="http://www.blizzard.com/wow/ui/">
+
+	<Script file="toolkit.lua"/>
+	<Script file="numbers.lua"/>
+	<Script file="funcs.lua"/>
+	<Script file="api.lua"/>
+
+</Ui>

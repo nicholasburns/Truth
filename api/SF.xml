@@ -1,0 +1,117 @@
+﻿<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/..\FrameXML\UI.xsd">
+
+
+	<!--ScrollFrame (Scripts)-->
+	<ScrollFrame name="UIPanelScrollFrameCodeTemplate" virtual="true">
+		<Scripts>
+			<OnLoad>ScrollFrame_OnLoad(self)</OnLoad>
+			<OnMouseWheel>ScrollFrameTemplate_OnMouseWheel(self, delta)</OnMouseWheel>
+			<OnScrollRangeChanged>ScrollFrame_OnScrollRangeChanged(self, xrange, yrange)</OnScrollRangeChanged>
+			<OnVerticalScroll>
+				local scrollbar = _G[self:GetName() .. "ScrollBar"]
+				scrollbar:SetValue(offset)
+
+				local min, max = scrollbar:GetMinMaxValues()
+				if (offset == 0) then
+					_G[scrollbar:GetName() .. "ScrollUpButton"]:Disable()
+				else
+					_G[scrollbar:GetName() .. "ScrollUpButton"]:Enable()
+				end
+
+				if ((scrollbar:GetValue() - max) == 0) then
+					_G[scrollbar:GetName() .. "ScrollDownButton"]:Disable()
+				else
+					_G[scrollbar:GetName() .. "ScrollDownButton"]:Enable()
+				end
+			</OnVerticalScroll>
+		</Scripts>
+	</ScrollFrame>
+
+
+
+	<!--Texture (Button)-->
+	<Texture name="UIPanelScrollBarButton" virtual="true">
+		<TexCoords left="0.20" right="0.80" top="0.25" bottom="0.75"/>
+	</Texture>
+
+
+	<!--Button (Up)-->
+	<Button name="UIPanelScrollUpButtonTemplate" virtual="true">
+		<Size x="18" y="16"/>
+	</Button>
+
+
+	<!--Button (Down)-->
+	<Button name="UIPanelScrollDownButtonTemplate" virtual="true">
+		<Size x="18" y="16"/>
+	</Button>
+
+
+	<!--ScrollBar (Up/Down/Thumb)-->
+	<Slider name="UIPanelScrollBarTemplate" virtual="true">
+		<Size x="16" y="0"/>
+
+		<!--Button (Up)-->
+		<Button name="$parentScrollUpButton" parentKey="ScrollUpButton" inherits="UIPanelScrollUpButtonTemplate">
+			<Anchor point="BOTTOM" relativePoint="TOP" x="0" y="0"/>
+		</Button>
+
+		<!--Button (Down)-->
+		<Button name="$parentScrollDownButton" parentKey="ScrollDownButton" inherits="UIPanelScrollDownButtonTemplate">
+			<Anchor point="TOP" relativePoint="BOTTOM" x="0" y="0"/>
+		</Button>
+
+		<!--ThumbTexture-->
+		<ThumbTexture name="$parentThumbTexture" inherits="UIPanelScrollBarButton" file="Interface\Buttons\UI-ScrollBar-Knob">
+			<Size x="18" y="24"/>
+			<TexCoords left="0.20" right="0.80" top="0.125" bottom="0.875"/>
+		</ThumbTexture>
+	</Slider>
+
+
+	<!--ScrollFrame (ScrollBar)-->
+	<ScrollFrame name="UIPanelScrollFrameTemplate" virtual="true" inherits="UIPanelScrollFrameCodeTemplate">
+
+		<!--Slider (ScrollBar)-->
+		<Slider name="$parentScrollBar" inherits="UIPanelScrollBarTemplate" parentKey="ScrollBar">
+			<Anchor point="TOPLEFT" relativePoint="TOPRIGHT" x="6" y="-16"/>
+			<Anchor point="BOTTOMLEFT" relativePoint="BOTTOMRIGHT" x="6" y="16"/>
+		</Slider>
+
+	</ScrollFrame>
+
+
+	<!--ScrollFrame (ScrollChild)-->
+	<ScrollFrame name="FauxScrollFrameTemplate" inherits="UIPanelScrollFrameTemplate" virtual="true">
+
+		<!--ScrollChild-->
+		<ScrollChild>
+			<Frame name="$parentScrollChildFrame">
+				<Size x="300" y="334"/>
+			</Frame>
+		</ScrollChild>
+
+	</ScrollFrame>
+
+
+</Ui>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

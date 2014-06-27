@@ -1,0 +1,14 @@
+﻿<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/..\FrameXML\UI.xsd">
+
+	<!-- addon recognition/response -->
+	<Script file="addons.lua"/>				<!-- print addon names to chat as they load -->
+	<Script file="blizzard.lua"/>				<!-- scripts that run when a particular blizzard addon is loaded -->
+
+	<!-- game settings -->
+	<Script file="cvar.lua"/>
+
+	<!-- final scripts -->
+	<Script file="author.lua"/>
+	<Script file="eof.lua"/>
+
+</Ui>

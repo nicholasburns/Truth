@@ -1,0 +1,13 @@
+﻿## Interface: 50400
+## Version: 3.1
+
+## Title: Truth
+## Notes: Improves your love life!
+## Author: Truthwithin
+
+## OptionalDeps: !Beautycase, !ClassColors, LibSharedMedia-3.0, LibDropdown-1.0
+
+## SavedVariables: TruthDB
+## SavedVariablesPerCharacter: TruthPCDB
+
+inc.xml

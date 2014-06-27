@@ -1,0 +1,79 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/..\FrameXML\UI.xsd">
+
+
+	<Frame name="CopyThatFrame" parent="UIParent" movable="true" enableMouse="true" inherits="DialogBoxFrame">
+		<Size>
+			<AbsDimension x="500" y="400"/>
+		</Size>
+
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\Tooltips\UI-Tooltip-Border">
+			<EdgeSize>
+				<AbsValue val="8"/>
+			</EdgeSize>
+		</Backdrop>
+
+		<Layers>
+			<Layer level="ARTWORK">
+
+				<FontString name="CopyThatFrameText" inherits="GameFontHighlight">
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset>
+								<AbsDimension x="5" y="-5"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+
+			</Layer>
+		</Layers>
+		<Frames>
+
+			<ScrollFrame name="CopyThatFrameScroll" inherits="UIPanelScrollFrameTemplate" toplevel="true">
+				<Size>
+					<AbsDimension x="455" y="330"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOP">
+						<Offset>
+							<AbsDimension x="-10" y="-16"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+
+				<ScrollChild>
+					<EditBox name="CopyThatFrameScrollText" letters="99999" multiLine="true" autoFocus="true" enableMouse="true">
+						<Size>
+							<AbsDimension x="450" y="344"/>
+						</Size>
+						<FontString inherits="ChatFontNormal"/>
+						<Scripts>
+
+							<OnTextChanged>
+								CopyThat:OnTextChanged(self)
+							</OnTextChanged>
+							<OnEscapePressed>
+								CopyThat:Hide(self)
+							</OnEscapePressed>
+
+						</Scripts>
+					</EditBox>
+				</ScrollChild>
+
+			</ScrollFrame>
+
+		</Frames>
+		<Scripts>
+
+			<OnMouseDown>
+				if (button == "LeftButton") then
+					self:StartMoving()
+				end
+			</OnMouseDown>
+			<OnMouseUp>
+				self:StopMovingOrSizing()
+			</OnMouseUp>
+
+		</Scripts>
+	</Frame>
+</Ui>

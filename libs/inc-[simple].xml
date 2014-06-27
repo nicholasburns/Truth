@@ -1,0 +1,1 @@
+﻿<Ui xmlns="http://www.blizzard.com/wow/ui/"><Include file="libs\inc.xml"/><Include file="addon\inc.xml"/><Include file="core\inc.xml"/><Include file="api\inc.xml"/><Include file="dev\inc.xml"/><Include file="scripts\inc.xml"/><Include file="mods\inc.xml"/></Ui>
